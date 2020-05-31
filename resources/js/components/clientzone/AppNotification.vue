@@ -103,9 +103,13 @@ export default {
                 })
                 .then(response => {
                     this.result = response.data;
+                    this.$vToastify.success("Data berhasil diambil");
                 })
                 .catch(function (error) {
                     console.log(error.response);
+                    fetch().then().catch(error => this.$vToastify.error(error));
+
+
                 });
 
         }

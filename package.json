@@ -33,6 +33,7 @@
         "vue": "^2.6.11",
         "vue-axios": "^2.1.5",
         "vue-router": "^3.1.6",
+        "vue-toastify": "^1.8.0",
         "vuejs-datetimepicker": "^1.1.13"
     },
     "name": "itoperation",

@@ -20,7 +20,13 @@ import UnsyncAldi from './components/mobile/UnsyncAldi.vue'
 
 //Clientzone
 import FailPrepare from './components/clientzone/FailPrepare.vue';
-import AppNotification from './components/clientzone/AppNotification.vue'
+import AppNotification from './components/clientzone/AppNotification.vue';
+
+//Toast
+import VueToastify from "vue-toastify";
+Vue.use(VueToastify, {
+    position: "top-right"
+});
 
 const routes = [{
         name: 'incoming',

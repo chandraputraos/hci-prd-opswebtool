@@ -148,9 +148,12 @@ import datetime from 'vuejs-datetimepicker'
                 })
                 .then(response => {
                    this.pgw = response.data;
+                   this.$vToastify.success("Data berhasil diambil");
                 })
                 .catch(function(error) {
                     console.log(error.response);
+                    fetch().then().catch(error => this.$vToastify.error(error));
+
                 });
 
 
