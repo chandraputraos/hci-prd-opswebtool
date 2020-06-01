@@ -22,13 +22,11 @@
                                 <option>Sysdate-7</option>
                             </select>
                             <span class="input-group-append">
-                                <button type="button" @click='showByID()' class="btn btn-success btn-flat">Go!</button>
+                                <button type="button" @click='showContract()' class="btn btn-success btn-flat">Go!</button>
                             </span>
                         </div>
                     </div>
-
                 </div>
-
                 <br>
                 <table class="table table-bordered">
                     <tbody>
@@ -50,6 +48,8 @@
                 </table>
             </div>
             <!-- /.card-body -->
+
+
 
             <!-- /.MODAL -->
             <div class="modal fade" id="modal-lg">
@@ -77,6 +77,29 @@
 
         </div>
     </div>
+
+<div class="col-md-6">
+<div class="card card-warning">
+              <div class="card-header">
+                <h3 class="card-title">Contract Sync Result</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->   
+              <form class="form-horizontal">
+                <div class="card-body">
+                  <tr v-for="user in users" :key="user.data">
+                    <td>{{ users }}</td>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                 
+                  <button type="button"  @click='executeContract()' class="btn btn-danger float-right">Execute!</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+</div>
+    
 </div>
 </template>
 
@@ -86,21 +109,16 @@ export default {
     data() {
         return {
             result: [],
-            range: ''
-
+            range: '',
+            users : [],
         }
-
     },
 
     methods: {
-
-        showByID: function () {
-
+        showContract: function () {
             axios.get('http://10.56.45.133/itoperation/laraAPI/mobile/unsyncAldi.php', {
                     params: {
-
                         range: this.range
-
                     }
                 })
                 .then(response => {
@@ -113,7 +131,21 @@ export default {
 
                 });
 
-        }
+        },
+
+         executeContract: function() {
+
+
+            axios.get('http://10.56.45.133/itoperation/laraAPI/mobile/soap_unsync.php', {
+                                   })
+                .then(response => {
+                    this.users = response.data;
+                     this.$vToastify.success("Unsync Data Berhasil");
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+}
     }
 }
 </script>
