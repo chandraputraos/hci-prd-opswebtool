@@ -87,13 +87,28 @@
               <!-- form start -->   
               <form class="form-horizontal">
                 <div class="card-body">
-                  <tr v-for="user in users" :key="user.data">
-                    <td>{{ users }}</td>
+                  <table class="table table-hover table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Result</th>
+                                   
+                                   
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <tr v-for="user in users" :key="user.Hit">
+                                    <td>{{ users.Hit }}</td>
+                                   
+                                 
+                                   
+                                </tr>
+                                </tbody>
+                            </table>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                  
-                  <button type="button"  @click='executeContract()' class="btn btn-danger float-right">Execute!</button>
+                  <button type="button"  @click='executeContract()' class="btn btn-danger btn-sm float-right">Execute!</button>
                 </div>
                 <!-- /.card-footer -->
               </form>
