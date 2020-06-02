@@ -149,47 +149,29 @@
 
             <!-- form start -->
 
-            <form class="form-horizontal">
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Result</th>
+                        </tr>
+                        <tr v-for="user in users" v-bind:key="user">
+                            <td>{{ users.Hit }}</td>
 
-                <div class="card-body">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                    <table class="table table-hover table-bordered">
+            <!-- /.card-body -->
 
-                        <thead>
+            <div class="card-footer">
 
-                            <tr>
+                <button type="button" @click='executeContract()' class="btn btn-danger btn-sm float-right">Execute!</button>
 
-                                <th>Result</th>
+            </div>
 
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr v-for="user in users" :key="user.Hit">
-
-                                <td>{{ users.Hit }}</td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-
-                    <button type="button" @click='executeContract()' class="btn btn-danger btn-sm float-right">Execute!</button>
-
-                </div>
-
-                <!-- /.card-footer -->
-
-            </form>
+            <!-- /.card-footer -->
 
         </div>
 
